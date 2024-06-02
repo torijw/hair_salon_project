@@ -1,0 +1,29 @@
+:root {
+    --header-color: #c2afa2;
+    --dark-accent: #3c4249;
+}
+
+nav.light {
+    background-color: var(--header-color);
+    font-weight: bold;
+}
+
+a.dark {
+    color: white;
+    background-color: var(--dark-accent);
+}
+
+a.dark:hover {
+    color: white;
+    background-color: #6a7178;
+}
+
+#welcome-card {
+    background-image: url('/assets/welcome.jpg'); 
+    background-position: center left;
+    background-size: cover;
+}
+
+.text-shadow p, .text-shadow h1 {
+    text-shadow: 2px 2px 5px black;
+}
