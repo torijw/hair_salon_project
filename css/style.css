@@ -19,7 +19,7 @@ a.dark:hover {
 }
 
 #welcome-card {
-    background-image: url('/assets/welcome.jpg'); 
+    background-image: url('../assets/welcome.jpg'); 
     background-position: center left;
     background-size: cover;
 }
