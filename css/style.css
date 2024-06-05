@@ -27,3 +27,26 @@ a.dark:hover {
 .text-shadow p, .text-shadow h1 {
     text-shadow: 2px 2px 5px black;
 }
+
+.service-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    background-size: cover;
+}
+
+.service-image#haircut {
+    background-image: url('../assets/haircut.jpg');
+}
+
+.service-image#styling {
+    background-image: url('../assets/styling.jpg');
+}
+
+.service-image#colour {
+    background-image: url('../assets/colour.png');
+}
+
+.service-image#extension {
+    background-image: url('../assets/extension.jpg');
+}
