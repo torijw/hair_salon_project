@@ -50,3 +50,10 @@ a.dark:hover {
 .service-image#extension {
     background-image: url('../assets/extension.jpg');
 }
+
+.card-img-top {
+    height: 300px;
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+}
