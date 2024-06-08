@@ -3,17 +3,21 @@
     --dark-accent: #3c4249;
 }
 
+body {
+    background-color: #fbf9f7;
+}
+
 nav.light {
     background-color: var(--header-color);
     font-weight: bold;
 }
 
-a.dark {
+button.dark, a.dark {
     color: white;
     background-color: var(--dark-accent);
 }
 
-a.dark:hover {
+button.dark:hover, a.dark:hover {
     color: white;
     background-color: #6a7178;
 }
@@ -56,4 +60,8 @@ a.dark:hover {
     height: 400px;
     object-fit: cover;
     object-position: top;
+}
+
+.form-check-input:checked {
+    background-color: var(--dark-accent);
 }

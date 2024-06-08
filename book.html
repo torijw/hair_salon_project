@@ -9,6 +9,8 @@
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+
     <!--Navbar-->
     <nav class="navbar sticky-top navbar-expand py-3 light">
       <div class="container-fluid">
@@ -35,9 +37,223 @@
           </ul>
         </div>
     </nav>
-    <p>booking page</p>
 
+    <div class="container-fluid text-center my-5">
+      <h1 class="display-6 fw-bold">Book an Appointment With Us!</h1>
+    </div>
 
+    <div class="container-md">
+      <form class="my-4"  action="confirmation.html" name="bookingForm">
+        <div class="container-fluid col-md-8">
+          <div class="row g-4 mb-5">
+            <!--expert/stylist-->
+            <div class="col">
+              <p class="fw-bold">Choose a stylist - <small class="text-muted">Name (specilization)</small></p>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stylist" id="any" value="Any" checked>
+                <label class="form-check-label" for="any">
+                  Any
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stylist" id="olivia" value="Olivia">
+                <label class="form-check-label" for="olivia">
+                  Olivia Ramirez (lead stylist)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stylist" id="ethan" value="Ethan">
+                <label class="form-check-label" for="ethan">
+                  Ethan Sullivan (colour)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stylist" id="sophie" value="Sophie">
+                <label class="form-check-label" for="sophie">
+                  Sophie Nguyen (bridal)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stylist" id="jackson" value="Jackson">
+                <label class="form-check-label" for="jackson">
+                  Jackson Patel (men's)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stylist" id="maxwell" value="Maxwell">
+                <label class="form-check-label" for="maxwell">
+                  Maxwell Chang (texture)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="stylist" id="ava" value="Ava">
+                <label class="form-check-label" for="ava">
+                  Ava Thompson (curls)
+                </label>
+              </div>
+            </div>
+  
+            <!--service selection-->
+            <div class="col">
+              <p class="fw-bold">Choose a service</p>
+              <div class="row">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" onclick="getSubservices('Haircut')" name="service" id="haircut" value="Haircut" required>
+                  <label class="form-check-label" for="haircut">
+                    Haircut
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" onclick="getSubservices('Styling')" name="service" id="styling" value="Styling">
+                  <label class="form-check-label" for="styling">
+                    Styling
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" onclick="getSubservices('Colouring')" name="service" id="colouring" value="Colouring">
+                  <label class="form-check-label" for="colouring">
+                    Colouring
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" onclick="getSubservices('Extensions')" name="service" id="extensions" value="Extensions">
+                  <label class="form-check-label" for="extensions">
+                    Extensions
+                  </label>
+                </div>
+              </div>
+  
+              <!--service subtype-->
+              <div class="row py-3">
+                <p class="fw-bold">Select a specific sub-type of your service</p>
+                <div>
+                  <select class="form-select text-muted" id="subservice" required>
+                    <option disabled selected>Select a service sub-type</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!--date and time-->
+          <p class="fw-bold">Choose a date and time for your appointment</p>
+          <div class="row g-4 mb-3">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input type="date" class="form-control" id="date" required>
+                <label class="text-muted" for="date">Choose a date</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input type="time" class="form-control" id="time" required>
+                <label class="text-muted" for="time">Choose a start time</label>
+              </div>
+            </div>
+          </div>
     
+          <!--name-->
+          <p class="fw-bold">Enter your first and last name</p>
+          <div class="row g-4 mb-3">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="firstname" placeholder="John" required>
+                <label class="text-muted" for="firstname">First name</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="lastname" placeholder="Doe" required>
+                <label class="text-muted" for="lastname">Last name</label>
+              </div>
+            </div>
+          </div>
+    
+          <!--contact information-->
+          <p class="fw-bold">Enter your contact information</p>
+          <div class="row g-4 mb-3">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="email" placeholder="example@email.com" required>
+                <label class="text-muted" for="email">Email address</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Example: 111-222-3333" placeholder="111-222-3333" required>
+                <label class="text-muted" for="phone">Phone number</label>
+              </div>
+            </div>
+          </div>
+          
+          <p class="fw-bold">Anything you'd like us to know that would help us better accomodate you?</p>
+          <div class="row g-4 mb-3">
+            <div class="col">
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="comments" style="height: 150px"></textarea>
+                <label class="text-muted" for="comments">Additional information</label>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row text-center">
+          <div class="col mb-3">
+            <button class="btn dark" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!--footer-->
+    <div class="container-fluid col-md-10">
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-2 my-5 border-top">
+        <div class="col mb-3">
+          <h5 class="fw-bold">Virtue Hair Salon</h5>
+          <p class="text-muted">© 2024</p>
+          <ul class="nav flex-column">
+            <li class="mb-2"></li>
+            <li><p></p></li>
+            <li><h5>Contact Info</h5></li>
+            <li><p class="mb-2 text-muted">111-222-3333</p></li>
+            <li><p class="mb-2 text-muted">contact@virtuesalon.com</p></li>
+          </ul>
+        </div>
+        <div class="col mb-3">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7920.284678870193!2d-75.69252122793432!3d45.42459253947811!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0506ec00c2bb%3A0xfc4e6e2329cb985f!2sTabaret%2C%2075%20Laurier%20Ave%20E%2C%20Ottawa%2C%20ON%20K1N%206N6!5e0!3m2!1sen!2sca!4v1717366076486!5m2!1sen!2sca" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col mb-3">
+          <h5>Location</h5>
+          <ul class="nav flex-column">
+            <li><p class="mb-2 text-muted">75 Laurier Ave E</p></li>
+            <li><p class="mb-2 text-muted">Ottawa, ON</p></li>
+            <li><p class="mb-2 text-muted">Canada, K1N 6N6</p></li>
+          </ul>
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Opening Hours</h5>
+          <ul class="nav flex-column">
+            <li><p class="mb-2 text-muted">Monday: Closed</p></li>
+            <li><p class="mb-2 text-muted">Tuesday: 11–8pm</p></li>
+            <li><p class="mb-2 text-muted">Wednesday: 11–8pm</p></li>
+            <li><p class="mb-2 text-muted">Thursday: 11am–8pm</p></li>
+            <li><p class="mb-2 text-muted">Friday: 11am–8pm</p></li>
+            <li><p class="mb-2 text-muted">Saturday: 10am–5pm</p></li>
+            <li><p class="mb-2 text-muted">Sunday: Closed</p></li>
+          </ul>
+        </div>
+    
+        <div class="col mb-3">
+          <h5>Info</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="index.html" class="nav-link p-0 text-muted">Home</a></li>
+            <li class="nav-item mb-2"><a href="services.html" class="nav-link p-0 text-muted">Services</a></li>
+            <li class="nav-item mb-2"><a href="team.html" class="nav-link p-0 text-muted">Our Team</a></li>
+            <li class="nav-item mb-2"><a href="book.html" class="nav-link p-0 text-muted">Book Appointment</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   </body> 
 </html>
