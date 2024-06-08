@@ -65,3 +65,11 @@ button.dark:hover, a.dark:hover {
 .form-check-input:checked {
     background-color: var(--dark-accent);
 }
+
+#confirmation-image {
+    background-image: url('../assets/confirmation.jpg'); 
+    background-position: center left;
+    background-size: cover;
+    height: 100%;
+    border-radius: 5px;
+}

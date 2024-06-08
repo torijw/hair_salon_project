@@ -30,3 +30,41 @@ function getSubservices(service) {
         subservice.appendChild(option);
     })
 }
+
+function sendInfo() {
+    var obj = new Object();
+	obj.stylist = document.querySelector('input[name="stylist"]:checked').value;
+	obj.service = document.querySelector('input[name="service"]:checked').value;
+	obj.subservice = document.getElementById("subservice").value;
+	obj.servicedate = document.getElementById("date").value;
+	obj.servicetime = document.getElementById("time").value;
+	obj.name = document.getElementById("firstname").value + " " + document.getElementById("lastname").value;
+	obj.email = document.getElementById("email").value;
+	obj.phone = document.getElementById("phone").value;
+	obj.comments = document.getElementById("comments").value;
+
+	var jsonString= JSON.stringify(obj);
+	sessionStorage.setItem("message", jsonString);
+}
+
+function getInfo() {
+    var message = sessionStorage.getItem("message");
+    var obj = JSON.parse(message);
+    
+    var service = obj.service;
+    var subservice = obj.subservice;
+    if (subservice != null && subservice != "Select a service sub-type") {
+        service += (" - " + subservice);
+    }
+    document.getElementById("name").innerHTML = obj.name;
+    document.getElementById("date").innerHTML = obj.servicedate;
+    document.getElementById("time").innerHTML = formatTime(obj.servicetime);
+    document.getElementById("stylist").innerHTML = obj.stylist;
+    document.getElementById("service").innerHTML = service;
+    document.getElementById("comments").innerHTML = obj.comments;
+}
+
+function formatTime(time) {
+    const [hour, minute] = time.split(":");
+    return (hour % 12 || 12) + ":" + minute + " " + (hour < 12 ? "AM" : "PM");
+}

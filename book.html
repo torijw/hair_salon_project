@@ -14,7 +14,7 @@
     <!--Navbar-->
     <nav class="navbar sticky-top navbar-expand py-3 light">
       <div class="container-fluid">
-        <a class="navbar-brand mx-5" href="#">
+        <a class="navbar-brand mx-5" href="index.html">
           <span class="fw-bold">Virtue Hair Salon</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +43,7 @@
     </div>
 
     <div class="container-md">
-      <form class="my-4"  action="confirmation.html" name="bookingForm">
+      <form class="my-4" action="confirmation.html" onsubmit="sendInfo()" name="bookingForm">
         <div class="container-fluid col-md-8">
           <div class="row g-4 mb-5">
             <!--expert/stylist-->
@@ -56,37 +56,37 @@
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="stylist" id="olivia" value="Olivia">
+                <input class="form-check-input" type="radio" name="stylist" id="olivia" value="Olivia Ramirez">
                 <label class="form-check-label" for="olivia">
                   Olivia Ramirez (lead stylist)
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="stylist" id="ethan" value="Ethan">
+                <input class="form-check-input" type="radio" name="stylist" id="ethan" value="Ethan Sullivan">
                 <label class="form-check-label" for="ethan">
                   Ethan Sullivan (colour)
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="stylist" id="sophie" value="Sophie">
+                <input class="form-check-input" type="radio" name="stylist" id="sophie" value="Sophie Nguyen">
                 <label class="form-check-label" for="sophie">
                   Sophie Nguyen (bridal)
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="stylist" id="jackson" value="Jackson">
+                <input class="form-check-input" type="radio" name="stylist" id="jackson" value="Jackson Patel">
                 <label class="form-check-label" for="jackson">
                   Jackson Patel (men's)
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="stylist" id="maxwell" value="Maxwell">
+                <input class="form-check-input" type="radio" name="stylist" id="maxwell" value="Maxwell Chang">
                 <label class="form-check-label" for="maxwell">
                   Maxwell Chang (texture)
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="stylist" id="ava" value="Ava">
+                <input class="form-check-input" type="radio" name="stylist" id="ava" value="Ava Thompson">
                 <label class="form-check-label" for="ava">
                   Ava Thompson (curls)
                 </label>
@@ -127,7 +127,7 @@
               <div class="row py-3">
                 <p class="fw-bold">Select a specific sub-type of your service</p>
                 <div>
-                  <select class="form-select text-muted" id="subservice" required>
+                  <select class="form-select text-muted" id="subservice" name="subservice" required>
                     <option disabled selected>Select a service sub-type</option>
                   </select>
                 </div>
@@ -140,13 +140,13 @@
           <div class="row g-4 mb-3">
             <div class="col">
               <div class="form-floating mb-3">
-                <input type="date" class="form-control" id="date" required>
+                <input type="date" class="form-control" id="date" name="date" required>
                 <label class="text-muted" for="date">Choose a date</label>
               </div>
             </div>
             <div class="col">
               <div class="form-floating mb-3">
-                <input type="time" class="form-control" id="time" required>
+                <input type="time" class="form-control" id="time" name="time" required>
                 <label class="text-muted" for="time">Choose a start time</label>
               </div>
             </div>
@@ -157,13 +157,13 @@
           <div class="row g-4 mb-3">
             <div class="col">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="firstname" placeholder="John" required>
+                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="John" required>
                 <label class="text-muted" for="firstname">First name</label>
               </div>
             </div>
             <div class="col">
               <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="lastname" placeholder="Doe" required>
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Doe" required>
                 <label class="text-muted" for="lastname">Last name</label>
               </div>
             </div>
@@ -174,13 +174,13 @@
           <div class="row g-4 mb-3">
             <div class="col">
               <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="email" placeholder="example@email.com" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@email.com" required>
                 <label class="text-muted" for="email">Email address</label>
               </div>
             </div>
             <div class="col">
               <div class="form-floating mb-3">
-                <input type="tel" class="form-control" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Example: 111-222-3333" placeholder="111-222-3333" required>
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Example: 111-222-3333" placeholder="111-222-3333" required>
                 <label class="text-muted" for="phone">Phone number</label>
               </div>
             </div>
@@ -190,7 +190,7 @@
           <div class="row g-4 mb-3">
             <div class="col">
               <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="comments" style="height: 150px"></textarea>
+                <textarea class="form-control" placeholder="Leave a comment here" id="comments" name="comments" style="height: 150px"></textarea>
                 <label class="text-muted" for="comments">Additional information</label>
               </div>
             </div>
